@@ -47,6 +47,10 @@ def positive(list1: list) -> int: # Задание 6
     return s
 
 
+def days(years: int, months: int) -> int: # Задание 7
+    days_num = (years * 12 + months) * 29
+    return days_num
+
 
 print(str_len('56'))
 print(list_len_compare([5, 5, 5], ['y', 'u', 'p', 'i']))
@@ -54,3 +58,4 @@ print(list_append([5, 5, 5], ['y', 'u', 'p', 'i']))
 print(in_range(-99.9))
 print(question('test', 'testtest'))
 print(positive([1, -1, 2, -5, 4.5]))
+print(days(1, 0))
