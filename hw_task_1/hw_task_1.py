@@ -66,6 +66,13 @@ def abriviate(string: str) -> str: # Задание 8
         print('Wrong type!')
 
 
+def factorial(number: int) -> int: # Задание 9
+    res = 1
+    for i in range(1, number + 1):
+        res *= i
+    return res
+
+
 print(str_len('56'))
 print(list_len_compare([5, 5, 5], ['y', 'u', 'p', 'i']))
 print(list_append([5, 5, 5], ['y', 'u', 'p', 'i']))
@@ -74,3 +81,4 @@ print(question('test', 'testtest'))
 print(positive([1, -1, 2, -5, 4.5]))
 days(1, 7)
 abriviate('j n jb')
+print(factorial(6))
