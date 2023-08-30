@@ -37,6 +37,15 @@ def question(string1: str, string2: str) -> str: # Задание 5
         return 'NO'
 
 
+def positive(list1: list) -> int: # Задание 6
+    j = 0
+    s = 0
+    for i in list1:
+        if list1[j] >= 0:
+            s += 1
+        j += 1
+    return s
+
 
 
 print(str_len('56'))
@@ -44,3 +53,4 @@ print(list_len_compare([5, 5, 5], ['y', 'u', 'p', 'i']))
 print(list_append([5, 5, 5], ['y', 'u', 'p', 'i']))
 print(in_range(-99.9))
 print(question('test', 'testtest'))
+print(positive([1, -1, 2, -5, 4.5]))
