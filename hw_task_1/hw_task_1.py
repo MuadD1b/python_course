@@ -73,6 +73,14 @@ def factorial(number: int) -> int: # Задание 9
     return res
 
 
+def no_for(list1: list) -> list: # Задание 10
+    i = 0
+    while i < len(list1):
+        list1[i] *= i
+        i += 1
+    print(list1)
+
+
 print(str_len('56'))
 print(list_len_compare([5, 5, 5], ['y', 'u', 'p', 'i']))
 print(list_append([5, 5, 5], ['y', 'u', 'p', 'i']))
@@ -82,3 +90,4 @@ print(positive([1, -1, 2, -5, 4.5]))
 days(1, 7)
 abriviate('j n jb')
 print(factorial(6))
+no_for([2, 4, 5, 8, 9, 13])
