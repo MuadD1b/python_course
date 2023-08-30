@@ -30,7 +30,17 @@ def in_range(number: float): # Задание 4
         return '-'
 
 
+def question(string1: str, string2: str) -> str: # Задание 5
+    if string1 in string2:
+        return 'YES'
+    else:
+        return 'NO'
+
+
+
+
 print(str_len('56'))
 print(list_len_compare([5, 5, 5], ['y', 'u', 'p', 'i']))
 print(list_append([5, 5, 5], ['y', 'u', 'p', 'i']))
 print(in_range(-99.9))
+print(question('test', 'testtest'))
