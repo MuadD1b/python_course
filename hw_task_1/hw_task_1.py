@@ -32,9 +32,9 @@ def in_range(number: float): # Задание 4
 
 def question(string1: str, string2: str) -> str: # Задание 5
     if string1 in string2:
-        return 'YES'
+        print('YES')
     else:
-        return 'NO'
+        print('NO')
 
 
 def positive(list1: list) -> int: # Задание 6
@@ -49,13 +49,28 @@ def positive(list1: list) -> int: # Задание 6
 
 def days(years: int, months: int) -> int: # Задание 7
     days_num = (years * 12 + months) * 29
-    return days_num
+    print(days_num)
+
+
+def abriviate(string: str) -> str: # Задание 8
+    letters = ''
+    try:
+        for i in range(len(string)):
+            if i == 0:
+                letters += string[i]
+                continue
+            if string[i - 1] == ' ':
+                letters += string[i]
+        print(letters)
+    except TypeError:
+        print('Wrong type!')
 
 
 print(str_len('56'))
 print(list_len_compare([5, 5, 5], ['y', 'u', 'p', 'i']))
 print(list_append([5, 5, 5], ['y', 'u', 'p', 'i']))
-print(in_range(-99.9))
+in_range(-99.9)
 print(question('test', 'testtest'))
 print(positive([1, -1, 2, -5, 4.5]))
-print(days(1, 0))
+days(1, 7)
+abriviate('j n jb')
