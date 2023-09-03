@@ -26,9 +26,24 @@ def match(list1: list, list2: list) -> list:    # задание 4
     return res
 
 
+def ladder(num: int) -> int:    # задание 5
+    global count
+    for i in range(num, 0, -1):
+        print('-' * i)
+        num = num - i
+        if num > 0:
+            ladder(i - 1)
+    return count
+
+
+
+
 
 
 print(remove('GoGogo s fgGos s go phpC C Py'))
 print(num_filter(3, [3, 5, 6, 66, 22, 33, 3]))
 print(only_string('5', 5, 'ddf', 63.9, 'jg'))
 print(match([5, 5, 6, 7, 1, 2, 40, 11], [12, 5, 4, 5, 40, 3, 3, 3]))
+count = 0
+length = 0
+print(ladder(6))
