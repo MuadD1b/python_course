@@ -1,3 +1,6 @@
+import time
+
+
 def remove(string: str) -> str: # задание 1
     stop = ['Python', 'php', 'go', 'C']
     res = ''
@@ -100,3 +103,18 @@ def sort_chem(chem: list) -> list:     # задание 8
 
 elements = [(2, 12, "Mg"), (1, 11, "Na"), (1, 3, "Li"), (2, 4, "Be")]
 print(sort_chem(elements))
+
+
+def time_fun(fun):     # задание 9
+    def wrapper(*args, **kwargs):
+        st = time.time()
+        result = fun(*args, **kwargs)
+        time.sleep(0.1)
+        et = time.time()
+        print(f'Function runtime = {et - st} seconds')
+        return result
+    return wrapper
+
+
+sort_chem_time = time_fun(sort_chem)
+print(sort_chem_time(elements))
