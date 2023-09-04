@@ -93,6 +93,10 @@ ladder_decor_repeat = decor_repeat(ladder)
 print(ladder_decor_repeat(6))
 
 
+def sort_chem(chem: list) -> list:     # задание 8
+    chem = sorted(chem, key=lambda x: x[1])
+    return chem
 
 
-
+elements = [(2, 12, "Mg"), (1, 11, "Na"), (1, 3, "Li"), (2, 4, "Be")]
+print(sort_chem(elements))
