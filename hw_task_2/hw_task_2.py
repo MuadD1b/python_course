@@ -42,13 +42,16 @@ def ladder(num):    # задание 5
     global count
     for i in range(num, 0, -1):
         rest = num - i
+        print('num = ', num)
+        print('i = ', i)
+        print('rest = ', rest)
         print('-' * i)
         if rest > 0:
             return ladder(rest)
         else:
             count += 1
             print()
-        print('rest', rest)
+            continue
     return count
 
 
@@ -66,15 +69,28 @@ def decor(fun):     # задание 6
     return wrapper
 
 
-# match_decor = decor(match)
+match_decor = decor(match)
 # print(match_decor([5, 5, 6, 7, 1, 2, 40, 11], [12, 5, 4, 5, 40, 3, 3, 3]))
 
-match_ladder = decor(ladder)
-print(match_ladder(6))
+ladder_decor = decor(ladder)
+# print(ladder_decor(6))
 
 
+def decor_repeat(fun):     # задание 7
+    def wrapper(*args, **kwargs):
+        try:
+            result = fun(*args, **kwargs)
+        except:
+            result = fun(*args, **kwargs)
+        return result
+    return wrapper
 
 
+# match_decor_repeat = decor_repeat(match_decor)
+# print(match_decor_repeat([5, 5, 6, 7, 1, 2, 40, 11], [12, 5, 4, 5, 40, 3, 3, 3]))
+
+ladder_decor_repeat = decor_repeat(ladder)
+print(ladder_decor_repeat(6))
 
 
 
