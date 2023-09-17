@@ -101,3 +101,83 @@ student_4.info()
 
 print(len(my_materials))
 print(len(student_1))
+
+
+class Apple:
+
+    def __init__(self, index, phase='bloom'):
+        self.index = index
+        self.phase = phase
+        self.phases = ['bloom', 'green', 'red']
+
+    def grow(self):
+        if self.phase == 'bloom':
+            self.phase = 'green'
+        elif self.phase == 'green':
+            self.phase = 'red'
+
+    def good(self):
+        return self.phase == 'red'
+
+
+class Tree:
+
+    def __init__(self, *args):
+        self.apple_list = []
+        self.args = args
+        for i in args:
+            self.apple_list.append(i.index)
+        print(self.apple_list)
+
+    def harvest(self):
+        self.apple_list = []
+
+    def grow_tree(self):
+        for i in self.args:
+            i.grow()
+
+    def good_tree(self):
+        for i in self.args:
+            if i.good() == False:
+                return False
+        return True
+
+
+class Gardener:
+
+    def __init__(self, name, *args):
+        self.name = name
+        self.args = args
+
+    def fertilize(self):
+        for i in self.args:
+            i.grow_tree()
+
+
+    def collect(self):
+        for i in self.args:
+            if i.good_tree() == True:
+                i.harvest()
+                print('Collected')
+            else:
+                print('Not yet')
+
+
+apple_1 = Apple(1)
+apple_2 = Apple(2)
+apple_3 = Apple(3)
+apple_4 = Apple(4)
+apple_5 = Apple(5)
+# print(apple_4.good())
+# apple_4.grow()
+# print(apple_4.good())
+# apple_4.grow()
+# print(apple_4.good())
+
+tree = Tree(apple_1, apple_2, apple_3, apple_4, apple_5)
+gardener = Gardener('Denis', tree)
+gardener.collect()
+gardener.fertilize()
+gardener.collect()
+gardener.fertilize()
+gardener.collect()
