@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 m = np.random.randint(1, high=11, size=100, dtype=int).reshape((10,10)) # задание 1
@@ -32,3 +33,6 @@ sub = df.groupby('Subcategory')['Rank'].sum()
 print(sub[sub == sub.min()])
 
 
+df = pd.read_csv('emojis.csv')  # задание 5
+plt.plot(df.groupby(['Year']).size())
+plt.savefig('New_vs_Year.png')
