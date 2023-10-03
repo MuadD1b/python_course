@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from datetime import datetime
 
 
 m = np.random.randint(1, high=11, size=100, dtype=int).reshape((10,10)) # задание 1
@@ -44,6 +45,7 @@ df = pd.read_csv('emojis.csv')  # задание 5
 print('task 5')
 plt.plot(df.groupby(['Year']).size())
 plt.savefig('New_vs_Year.png')
+plt.clf()
 print()
 
 
@@ -60,4 +62,21 @@ def check_category(cat: str):   # задание 6
 print('task 6')
 check_category('Flags')
 check_category('Life')
+print()
+
+
+def dates(open, close):   # задание 7
+    df = pd.read_csv('BCT-USD.csv')
+    # df['Date'] = df['Date'].map(lambda x: datetime.strptime(x, '%Y-%m-%d').date())
+    df.index = df.Date
+    plt.plot(df.loc[open:close, 'Open'])
+    plt.savefig('Open_vs_Date.png')
+    plt.clf()
+    plt.plot(df.loc[open:close, 'Close'])
+    plt.savefig('Close_vs_Date.png')
+    plt.clf()
+
+
+print('task 7')
+dates('2021-10-23', '2022-05-17')
 print()
