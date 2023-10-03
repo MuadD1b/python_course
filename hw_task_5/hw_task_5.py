@@ -8,4 +8,8 @@ df = pd.DataFrame(m)
 
 ind = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']    # задание 2
 df.index = ind
-print(df.apply(lambda row: row > 5))
+df = df[(df > 5).all(axis=1)]
+if not df.empty:
+    print(df)
+else:
+    print('No line with all values > 5')
