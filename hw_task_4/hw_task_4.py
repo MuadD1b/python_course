@@ -29,3 +29,21 @@ for i in range(len(m)):
 print('task 4')
 print(m)
 print()
+
+
+def matrix(N:int):  # задание 5
+    m = int(N/2)
+    count = 0
+    for i in range(2, m + 1):
+        if N % i == 0:
+            count += 1
+            n = int(N/i)
+            print(f'Matrix {count}: ({i} * {n}) ')
+            print(np.random.randint(1, high=11, size=N, dtype=int).reshape(i, n))
+    if count == 0:
+        print('No matrixes could be created')
+
+
+print('task 5')
+matrix(12)
+print()
