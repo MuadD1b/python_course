@@ -13,3 +13,10 @@ x[1::2,::2] = 1
 x[::2,1::2] = 1
 print(x)
 print()
+
+
+m = np.random.randint(1, high=11, size=32, dtype=int).reshape(8, 4) # задание 3
+n = np.random.randint(1, high=11, size=8, dtype=int).reshape(4, 2)
+print('task 3')
+print(np.dot(m, n))
+print()
