@@ -27,3 +27,8 @@ print('Matrix mean is', df.mean().mean())
 df.to_csv('Matrix_task_3.csv')
 
 
+df = pd.read_csv('emojis.csv')  # задание 4
+sub = df.groupby('Subcategory')['Rank'].sum()
+print(sub[sub == sub.min()])
+
+
