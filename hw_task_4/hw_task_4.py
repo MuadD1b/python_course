@@ -1,4 +1,5 @@
 import numpy as np
+import re
 
 
 m = np.random.randint(1, high=11, size=10, dtype=int) # задание 1
@@ -46,4 +47,27 @@ def matrix(N:int):  # задание 5
 
 print('task 5')
 matrix(12)
+print()
+
+
+class text_search:    # задание 6
+
+    def __init__(self, path):
+        self.path = path
+
+    def read(self):
+        self.text = np.genfromtxt(self.path, dtype=str, delimiter='\n')
+        self.line = ''
+        for i in self.text:
+            self.line += i
+
+    def search(self, pattern):
+        self.match = re.findall(fr'{pattern}', self.line)
+        print(self.match)
+
+
+print('task 6')
+text = text_search('text.txt')
+text.read()
+text.search('\d\w{3}\d')
 print()
