@@ -71,3 +71,25 @@ text = text_search('text.txt')
 text.read()
 text.search('\d\w{3}\d')
 print()
+
+
+def forward(A, S, last=False):    # задание 7
+    X = len(A)
+    B = np.random.rand(S * X).reshape(S, X)
+    M = np.dot(B, A)
+    if last == False:
+        res = np.sin(M)
+    else:
+        res = np.maximum(M, 0)
+    return res, B
+
+
+print('task 7')
+vec = np.random.rand(5)
+x1, B1 = forward(vec, 10)
+x2, B2 = forward(x1, 10)
+x3, B3 = forward(x2, 5, True)
+print(x3 * 100)
+print()
+
+
