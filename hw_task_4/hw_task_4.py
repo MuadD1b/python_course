@@ -1,5 +1,6 @@
 import numpy as np
 import re
+import pandas as pd
 
 
 m = np.random.randint(1, high=11, size=10, dtype=int) # задание 1
@@ -93,3 +94,17 @@ print(x3 * 100)
 print()
 
 
+class analise:    # задание 8
+
+    def __init__(self, path):
+        self.path = path
+
+    def read(self):
+        self.text = pd.read_csv(self.path)
+        print(self.text)
+
+
+print('task 8')
+nlo = analise('nlo.csv')
+nlo.read()
+print()
