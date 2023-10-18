@@ -52,13 +52,28 @@ class Neural:
         self.model.fit(self.X, self.Y, epochs=self.epochs, batch_size=self.batch_size, verbose=self.verbose)
 
     def predict(self, num):
-        prediction = self.model(self.X[:num])
-        print('Prediction:\n', np.array(prediction))
+        prediction = np.array(self.model(self.X[:num]))
+        return prediction
 
 
-nn = Neural()
-nn.prepare()
-nn.train()
-nn.predict(3)
+# nn = Neural()
+# nn.prepare()
+# nn.train()
+# print('Prediction:\n', nn.predict(3))
 
+
+m = 1
+for i in range(5, 15, 5):
+    for j in range(4, 10, 2):
+        for k in range(10, 50, 10):
+            for l in range(10, 50, 10):
+                nn = Neural(layer_1=i, layer_2=j, epochs=k, batch_size=l)
+                nn.prepare()
+                nn.train()
+                a = []
+                a = np.append(a, nn.predict(3))
+                a = np.append(a, nn.predict(3))
+                a = np.append(a, nn.predict(3))
+                np.savetxt(f'nn-{m}_layer1-{i}_layer2-{j}_epochs-{k}_batch-{l}.txt', a, delimiter=',')
+                m += 1
 
