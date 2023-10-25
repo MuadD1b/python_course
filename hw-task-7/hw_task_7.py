@@ -1,4 +1,7 @@
 import cv2 as cv
+import numpy as np
+from sklearn import svm
+from sklearn.model_selection import train_test_split
 
 
 class Images:
@@ -50,7 +53,11 @@ class Images:
                 cv.imshow('frame', self.frame)
                 cv.waitKey(2000)
 
-image = Images('photo.jpg')
-image.show()
-image.resizing(None,200)
-image.detect()
+# image = Images('photo.jpg')
+# image.show()
+# image.resizing(None,200)
+# image.detect()
+
+dataset = np.genfromtxt('titanic.csv', delimiter=',', dtype=float)
+Y = dataset[:, 6]
+X = dataset[:, 6]
